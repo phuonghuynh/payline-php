@@ -1,5 +1,5 @@
 <?php
-namespace Payline\Tests;
+namespace Payline\Test;
 
 
 use Payline\Resources\Authorization;
