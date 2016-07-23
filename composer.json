@@ -1,6 +1,6 @@
 {
   "name": "payline/payline-php",
-  "type": "library",
+  "version": "1.0.1",
   "description": "A PHP HTTP Client conforming to the HAL hypermedia type for the Payline processing API",
   "license": "Apache2",
   "authors": [

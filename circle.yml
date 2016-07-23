@@ -8,6 +8,7 @@ dependencies:
     - php composer.phar install
   override:
     - composer install --prefer-source --no-interaction
+    - composer dump-autoload -o
   cache_directories:
     - vendor
 

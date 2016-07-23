@@ -9,7 +9,7 @@ use Payline\Resources\Transfer;
 
 class ScenariosTest extends \PHPUnit_Framework_TestCase {
 
-    public function test_Scenario()
+    public function testScenario()
     {
         $identity = $this->createIdentity();
         $this->createMerchant($identity);
