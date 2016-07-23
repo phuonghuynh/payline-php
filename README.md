@@ -1,6 +1,6 @@
 # Payline Client
 
-[![Circle CI](https://circleci.com/gh/finix-payments/payline-php.svg?style=svg&circle-token=e14235e0e783121b16391bca9cca82898e3ba34e)](https://circleci.com/gh/finix-payments/payline-php)
+[![Circle CI](https://circleci.com/gh/Payline/payline-php.svg?style=svg)](https://circleci.com/gh/Payline/payline-php)
 
 ## Requirements
 
