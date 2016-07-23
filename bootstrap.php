@@ -6,6 +6,7 @@ require(__DIR__ . '/src/Payline/Bootstrap.php');
 
 use Payline\Settings;
 use Payline\Bootstrap;
+use Payline\Tests\SampleData;
 
 Settings::configure(
   SampleData::$apiUrl,

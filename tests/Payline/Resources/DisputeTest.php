@@ -1,5 +1,5 @@
 <?php
-namespace Payline\Test;
+namespace Payline\Tests;
 
 use Payline\Resources\Dispute;
 use Payline\Resources\Identity;

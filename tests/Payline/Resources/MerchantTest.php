@@ -1,5 +1,5 @@
 <?php
-namespace Payline\Test;
+namespace Payline\Tests;
 
 class MerchantTest extends \PHPUnit_Framework_TestCase
 {

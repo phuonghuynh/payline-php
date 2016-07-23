@@ -1,6 +1,6 @@
 <?php
 
-namespace Payline\Test;
+namespace Payline\Tests;
 
 
 class SampleData {

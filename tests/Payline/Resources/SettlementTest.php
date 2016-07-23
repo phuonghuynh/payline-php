@@ -1,5 +1,5 @@
 <?php
-namespace Payline\Test;
+namespace Payline\Tests;
 
 use Payline\Resources\Identity;
 use Payline\Resources\PaymentInstrument;
