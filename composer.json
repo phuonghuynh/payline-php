@@ -1,5 +1,5 @@
 {
-  "name": "payline/payline-php",
+  "name": "payline-data/payline-php",
   "version": "1.0.1",
   "description": "A PHP HTTP Client conforming to the HAL hypermedia type for the Payline processing API",
   "license": "Apache2",
