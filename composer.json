@@ -1,5 +1,6 @@
 {
   "name": "payline/payline-php",
+  "version": "1.0.1",
   "description": "A PHP HTTP Client conforming to the HAL hypermedia type for the Payline processing API",
   "license": "Apache2",
   "authors": [
@@ -10,20 +11,19 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "guzzlehttp/guzzle": "5.3.0",
-    "finix/processing-php": "*"
+    "finix/processing-php": "1.0.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.7.*"
+    "phpunit/phpunit": "4.0.*"
   },
   "autoload": {
     "psr-4": {
-      "Payline\\": "src/Payline"
+      "Payline\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Payline\\Tests\\": "tests/Payline"
+      "Payline\\Tests\\": "tests"
     }
   },
   "repositories": [

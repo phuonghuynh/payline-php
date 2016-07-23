@@ -1,6 +1,7 @@
 <?php
 
 namespace Payline;
+
 use Payline\Resources;
 
 class Bootstrap extends \Finix\Bootstrap

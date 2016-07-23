@@ -1,5 +1,5 @@
 <?php
-namespace Payline\Test;
+namespace Payline\Tests;
 
 use Payline\Resources\Authorization;
 use Payline\Resources\Identity;
@@ -39,7 +39,7 @@ TAG;
 
     public static function setUpBeforeClass()
     {
-        self::$identity = Identity::retrieve('IDszRMhKZ9xgktpGc1haQ9LH');
+        self::$identity = Identity::retrieve(SampleData::$identityId);
         // TODO: identity must have a merchant account on DUMMY_V1 processor
         // TODO: if we're calling the api with wrong credentials, we get 500 instead of 403
         $card = json_decode(self::PAYMENT_CARD_PAYLOAD, true);
