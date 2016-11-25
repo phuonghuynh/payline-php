@@ -140,7 +140,7 @@ class Fixtures extends \PHPUnit_Framework_TestCase
     public static function waitFor($condition)
     {
         $time = 5;
-        $timeout = 60 * 20;  // 20 mins
+        $timeout = 60 * 40;  // 20 mins
         while (!$condition()) {
             $timeout -= $time;
             if ($timeout <= 0) {
