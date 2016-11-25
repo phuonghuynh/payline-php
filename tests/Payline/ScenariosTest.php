@@ -78,56 +78,6 @@ class ScenariosTest extends \PHPUnit_Framework_TestCase {
         $this->webhook = Fixtures::createWebhook("https://tools.ietf.org/html/rfc2606");
     }
 
-
-//    protected function setUp()
-//    {
-//        $this->receiptImage = realpath("../../data/receipt.jpg");
-//
-//        date_default_timezone_set("UTC");
-//        Settings::configure(["username" => null, "password" => null]);
-//
-//        $this->user = Fixtures::createAdminUser();
-//
-//        Settings::configure(["username" => $this->user->id, "password" => $this->user->password]);
-//
-//        $this->application = Fixtures::createApplication($this->user);
-//        $this->application->processing_enabled = true;
-//        $this->application->settlement_enabled = true;
-//        $this->application = $this->application->save();
-//
-//        $this->dummyProcessor = Fixtures::dummyProcessor($this->application);
-//
-//        $this->partnerUser = Fixtures::createPartnerUser($this->application);
-//
-//        Settings::configure(["username" => $this->partnerUser->id, "password" => $this->partnerUser->password]);
-//
-//        $this->identity = Fixtures::createIdentity();
-//
-//        $this->merchant = Fixtures::provisionMerchant($this->identity);
-//
-//        $this->card = Fixtures::createCard($this->identity);
-//
-//        $this->cardVerification = $this->card->verifyOn(new Verification(["processor" => "DUMMY_V1"]));
-//
-//        $this->pushFundTransfer = Fixtures::createTransfer([
-//            "identity" => $this->card->identity,
-//            "amount" => Fixtures::$disputeAmount,
-//            "source" => $this->card->id,
-//            "tags" => ["_source" => "php_client"]
-//        ]);
-//
-//        self::assertEquals($this->pushFundTransfer->state, "PENDING", "Transfer not in pending state");
-//
-//        Fixtures::waitFor(function () {
-//            $this->pushFundTransfer = $this->pushFundTransfer->refresh();
-//            return $this->pushFundTransfer->state == "SUCCEEDED";
-//        });
-//
-//        $this->bankAccount = Fixtures::createBankAccount($this->identity);
-//
-//        $this->webhook = Fixtures::createWebhook("https://tools.ietf.org/html/rfc2606");
-//    }
-
     public function testCaptureAuthorization()
     {
         $this->markTestSkipped('must be revisited, see https://github.com/verygoodgroup/processing/issues/2330#issue-190787250');
