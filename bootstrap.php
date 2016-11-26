@@ -1,17 +1,15 @@
 <?php
 
 require(__DIR__ . '/src/Payline/Settings.php');
-require(__DIR__ . '/tests/Payline/SampleData.php');
+require(__DIR__ . '/tests/Payline/Fixtures.php');
 require(__DIR__ . '/src/Payline/Bootstrap.php');
 
-use Payline\Settings;
-use Payline\Bootstrap;
-use Payline\Tests\SampleData;
+use \Payline\Tests\Fixtures;
+use \Payline\Settings;
+use \Payline\Bootstrap;
 
-Settings::configure(
-  SampleData::$apiUrl,
-  SampleData::$username,
-  SampleData::$password
-);
+Settings::configure([
+    "root_url" => Fixtures::$apiUrl
+]);
 
 Bootstrap::init();
