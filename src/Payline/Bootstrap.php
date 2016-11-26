@@ -25,10 +25,13 @@ class Bootstrap extends \Finix\Bootstrap
 
     \Finix\Resource::init();
 
+    Resources\User::init();
     Resources\Application::init();
     Resources\Identity::init();
     Resources\Authorization::init();
     Resources\PaymentInstrument::init();
+    Resources\BankAccount::init();
+    Resources\PaymentCard::init();
     Resources\Transfer::init();
     Resources\Dispute::init();
     Resources\Evidence::init();
