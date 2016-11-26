@@ -27,10 +27,8 @@ class ScenariosTest extends \PHPUnit_Framework_TestCase {
     private $settlement;
     private $receiptImage;
 
-    public function __construct($name = null, array $data = array(), $dataName = '')
+    protected function setUp()
     {
-        parent::__construct($name, $data, $dataName);
-
         $this->receiptImage = realpath("../../data/receipt.jpg");
 
         date_default_timezone_set("UTC");
