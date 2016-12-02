@@ -25,5 +25,7 @@
     "psr-4": {
       "Payline\\Tests\\": "tests"
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
 }
