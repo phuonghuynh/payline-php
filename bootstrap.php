@@ -8,6 +8,8 @@ use \Payline\Tests\Fixtures;
 use \Payline\Settings;
 use \Payline\Bootstrap;
 
+Fixtures::$apiUrl = getenv("PROCESSING_URL");
+
 Settings::configure([
     "root_url" => Fixtures::$apiUrl
 ]);
