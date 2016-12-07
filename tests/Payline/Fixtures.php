@@ -14,6 +14,7 @@ use Payline\Resources\Transfer;
 use Payline\Resources\User;
 use Payline\Resources\Webhook;
 use Payline\Resources\Authorization;
+use Payline\Resources\Token;
 
 class Fixtures extends \PHPUnit_Framework_TestCase
 {
@@ -54,31 +55,23 @@ class Fixtures extends \PHPUnit_Framework_TestCase
     public static function sampleEntity()
     {
         return [
+            "max_transaction_amount" => Fixtures::$disputeAmount,
+            "settlement_currency" => "USD",
+            "settlement_bank_account" => "CORPORATE",
+            "url" => "http://sample.company.com",
+            "annual_card_volume" => 100,
+            "default_statement_descriptor" => "sample",
+            "incorporation_date" => ["day" => date("d"), "month" => date("m"), "year" => date("Y") - 1],
+            "mcc" => 7399,
+            "principal_percentage_ownership" => 10,
+            "business_type" => "LIMITED_LIABILITY_COMPANY",
+            "business_phone" => "+1 (408) 756-4497",
             "first_name" => "xdwayne",
             "last_name" => "Sunkhronos",
-            "email" => "xuser@example.org",
-            "business_name" => "business inc 2",
-            "business_type" => "LIMITED_LIABILITY_COMPANY",
-            "url" => "http://sample.company.com",
-            "doing_business_as" => "xdoingBusinessAs",
-            "phone" => "x1234567890",
-            "business_phone" => "+1 (408) 756-4497",
-            "tax_id" => "x123456789",
-            "business_tax_id" => "x123456789",
-            "default_statement_descriptor" => "sample",
-            "incorporation_date" => [
-                "day" => "15",
-                "month" => "10",
-                "year" => "2015"
-            ],
-            "principal_percentage_ownership" => 10,
-            "personal_address" => [
-                "line1" => "741 Douglass St",
-                "line2" => "Apartment 7",
-                "city" => "San Mateo",
-                "region" => "CA",
-                "postal_code" => "94114",
-                "country" => "USA"
+            "dob" => [
+                "month" => 5,
+                "day" => 27,
+                "year" => 1978
             ],
             "business_address" => [
                 "line1" => "741 Douglass St",
@@ -88,16 +81,20 @@ class Fixtures extends \PHPUnit_Framework_TestCase
                 "postal_code" => "94114",
                 "country" => "USA"
             ],
-            "mcc" => 7399,
-            "dob" => [
-                "day" => 27,
-                "month" => 5,
-                "year" => 1978
+            "doing_business_as" => "xdoingBusinessAs",
+            "phone" => "1234567890",
+            "personal_address" => [
+                "line1" => "741 Douglass St",
+                "line2" => "Apartment 7",
+                "city" => "San Mateo",
+                "region" => "CA",
+                "postal_code" => "94114",
+                "country" => "USA"
             ],
-            "max_transaction_amount" => 888888,
-            "settlement_currency" => "USD",
-            "settlement_bank_account" => "CORPORATE",
-            "annual_card_volume" => 100
+            "business_name" => "business inc 2",
+            "business_tax_id" => "x123456789",
+            "email" => "xuser@example.org",
+            "tax_id" => "x123456789"
         ];
     }
 
@@ -123,7 +120,7 @@ class Fixtures extends \PHPUnit_Framework_TestCase
 
     public static function provisionMerchant($identity)
     {
-        $merchant = $identity->provisionMerchantOn(new Merchant(["processor" => "DUMMY_V1"]));
+        $merchant = $identity->provisionMerchantOn(new Merchant());
         self::assertEquals($merchant->identity, $identity->id, "Invalid merchant identity");
         return $merchant;
     }
@@ -144,7 +141,7 @@ class Fixtures extends \PHPUnit_Framework_TestCase
     public static function waitFor($condition)
     {
         $time = 5;
-        $timeout = 60 * 20;  // 20 mins
+        $timeout = 60 * 60;  // 20 mins
         while (!$condition()) {
             $timeout -= $time;
             if ($timeout <= 0) {
@@ -224,5 +221,35 @@ class Fixtures extends \PHPUnit_Framework_TestCase
         $settlement = $identity->createSettlement($settlement);
         self::assertNotNull($settlement->id, "Settlement not created");
         return $settlement;
+    }
+
+    public static function createPaymentToken($application, $identityId)
+    {
+        $token = new Token([
+            "address" => [
+                "city" => "San Mateo",
+                "country" => "USA",
+                "line1" => "741 Douglass St",
+                "line2" => "Apartment 7",
+                "postal_code" => "94114",
+                "region" => "CA"
+            ],
+            "brand" => "VISA",
+            "card_type" => "CREDIT",
+            "expiration_month" => 12,
+            "expiration_year" => 2020,
+            "name" => [
+                "first_name" => "Joe",
+                "full_name" => "Joe Doe",
+                "last_name" => "Doe"
+            ],
+            "identity" => $identityId,
+            "number" => "4111111111111111",
+            "security_code" => "231",
+            "type" => "PAYMENT_CARD"
+        ]);
+        $token = $application->createToken($token);
+        self::assertNotNull($token->id, "Payment token not created");
+        return $token;
     }
 }
