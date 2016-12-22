@@ -41,6 +41,7 @@ class Bootstrap extends \Finix\Bootstrap
         Resources\Reversal::init();
         Resources\Processor::init();
         Resources\InstrumentUpdate::init();
+        \Finix\Resources\InstrumentUpdate::init();
         Resources\Merchant::init();
 
         self::$initialized = true;
