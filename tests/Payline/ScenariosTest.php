@@ -2,10 +2,24 @@
 namespace Payline\Tests;
 
 
-use Payline\Resources\Dispute;
-use Payline\Resources\Verification;
 use Payline\Settings;
 use Payline\Tests\Fixtures;
+use Payline\Resources\User;
+use Payline\Resources\Application;
+use Payline\Resources\Identity;
+use Payline\Resources\Authorization;
+use Payline\Resources\PaymentInstrument;
+use Payline\Resources\BankAccount;
+use Payline\Resources\PaymentCard;
+use Payline\Resources\Transfer;
+use Payline\Resources\Dispute;
+use Payline\Resources\Evidence;
+use Payline\Resources\Webhook;
+use Payline\Resources\Verification;
+use Payline\Resources\Settlement;
+use Payline\Resources\Reversal;
+use Payline\Resources\Processor;
+use Payline\Resources\Merchant;
 use Payline\Resources\InstrumentUpdate;
 
 class ScenariosTest extends \PHPUnit_Framework_TestCase
