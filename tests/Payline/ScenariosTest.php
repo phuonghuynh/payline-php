@@ -24,7 +24,6 @@ use Payline\Resources\InstrumentUpdate;
 
 class ScenariosTest extends \PHPUnit_Framework_TestCase
 {
-
     private $partnerUser;
     private $user;
     private $application;
@@ -209,15 +208,13 @@ class ScenariosTest extends \PHPUnit_Framework_TestCase
         $update = $this->card->createUpdate(new InstrumentUpdate(["merchant" => $merchant->id]));
         $this->assertEquals($this->application->id, $update->application);
 
-        $href = $this->card->getHref("updates") . "?id=" .  $update->id;
-//        $fetchUpdate = InstrumentUpdate::retrieve(PaymentCard::getUpdateUri($this->card->id, $update->id));
-        $fetchUpdate = InstrumentUpdate::retrieve($href);
+        $fetchUpdate = InstrumentUpdate::retrieve(PaymentCard::getUpdateUri($this->card->id, $update->id));
         $this->assertEquals($update->id, $fetchUpdate->id);
     }
 
     public function testGetAllInstrumentUpdates()
     {
-        $this->testCreateInstrumentUpdate();
+        $this->testCreateAndFetchInstrumentUpdate();
         $instrumentUpdatePage = InstrumentUpdate::getPagination($this->card);
         foreach ($instrumentUpdatePage as $indexPage => $instrumentUpdates) {
             foreach ($instrumentUpdates as $index => $instrumentUpdate) { // read the first page
