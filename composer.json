@@ -11,12 +11,15 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "finix/processing-php": "==1.0.4"
+    "finix/processing-php": "==1.0.5"
   },
   "require-dev": {
     "phpunit/phpunit": "4.0.*"
   },
   "autoload": {
+    "psr-0": {
+      "Payline\\": "./src"
+    },
     "psr-4": {
       "Payline\\": "src"
     }
